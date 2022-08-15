@@ -1,1 +1,1 @@
-# Tienda de libros nuevos y usados hecha en React
+# Tienda de libros nuevos y usados en React
