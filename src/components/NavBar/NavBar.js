@@ -69,8 +69,8 @@ export default function NavBar() {
                           <li className="text-gray-600 hover:text-blue-600">
                               <a href="javascript:void(0)">Sobre nosotros </a>
                           </li>
-                          <li className="text-gray-600 hover:text-black-600 text-lg">
-                              <CartWidget/>
+                          <li>
+                            <CartWidget/>
                           </li>
                       </ul>
                   </div>
