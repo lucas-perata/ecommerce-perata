@@ -69,9 +69,10 @@ export default function NavBar() {
                           <li className="text-gray-600 hover:text-blue-600">
                               <a href="javascript:void(0)">Sobre nosotros </a>
                           </li>
-                          <li>
+                          <li className=  "flex flex-row">
                             <CartWidget/>
                           </li>
+
                       </ul>
                   </div>
               </div>
