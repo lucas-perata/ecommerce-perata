@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import CartWidget from "../CartWidget/CartWidget";
 
 export default function NavBar() {
   const [navbar, setNavbar] = useState(false);
@@ -67,6 +68,9 @@ export default function NavBar() {
                           </li>
                           <li className="text-gray-600 hover:text-blue-600">
                               <a href="javascript:void(0)">Sobre nosotros </a>
+                          </li>
+                          <li className="text-gray-600 hover:text-black-600 text-lg">
+                              <CartWidget/>
                           </li>
                       </ul>
                   </div>
