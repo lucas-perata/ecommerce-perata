@@ -1,8 +1,9 @@
 import React from "react";
 import landing from "./landing.jpg"
+import ItemCount from '../ItemCount/ItemCount'
 
 const ItemListContainer = (props) => {
-    return (
+    return (<>
     <section className="dark:bg-gray-800 dark:text-gray-100 bg-cyan-500 h-auto">
         <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
             <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
@@ -15,6 +16,9 @@ const ItemListContainer = (props) => {
 		</div>
         </div>
     </section>
+    <ItemCount
+              stock = {2} />
+    </>
     )
 }
 
