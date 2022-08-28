@@ -1,8 +1,32 @@
 import React, { useEffect, useState } from "react";
 import landing from "./landing.jpg"
 import ItemList from '../ItemList/ItemList'
+import { products } from '../../mock/products'
 
 const ItemListContainer = (props) => {
+
+    const [items, setItems] = useState([])
+
+    useEffect(() => {
+        const getProducts = new Promise((res, rej) => {
+            setTimeout(() => {
+                setItems(products)
+              }, 2000); 
+        });
+    
+        getProducts
+            .then((data) => {
+                setItems(products)
+            }
+            )
+            .catch((error)=>{
+                console.log(error)
+            })
+            .finally(() => {
+                console.log('Finally')
+            });
+
+    }, []);
         
     return (<>
     <section className="dark:bg-gray-800 dark:text-gray-100 bg-cyan-500 h-auto">
@@ -16,8 +40,15 @@ const ItemListContainer = (props) => {
 			<img src={landing} alt="" className="object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128"></img>
 		</div>
         </div>
+    </section>
+
+        <section id="tienda" className="">
+            <h2 className="flex justify-center text-5xl font-black p-6">Tienda</h2>
+                <div className=" container flex flex-col justify-around p-6 mx-auto sm:py-12 lg:py-10 lg:flex-row lg:flex lg:gap-5 md:flex md:items-center sm:flex sm:items-center">
+                    <ItemList
+                    items = {items} />
+                </div>
         </section>
-        <ItemList/>
     </>
     )
 }

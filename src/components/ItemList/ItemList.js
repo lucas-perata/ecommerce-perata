@@ -1,40 +1,22 @@
-import React, { useEffect, useState } from "react";
-import { products } from '../../mock/products'
+import React from "react";
 import {Item} from '../Item/Item'
 import ItemCount from '../ItemCount/ItemCount'
+import './ItemList.css'
 
 const ItemList = (props) => {
-
-    const [items, setItems] = useState([])
-
-    useEffect(() => {
-        const getProducts = new Promise((res, rej) => {
-            setTimeout(() => {
-                res(products)
-              }, 1500); 
-        });
-    
-        getProducts
-            .then((data) => {
-                setItems(data)
-            }
-            )
-            .catch((error)=>{
-                console.log(error)
-            })
-            .finally(() => {
-                console.log('Finally')
-            });
-
-    }, []);
     
   return (
     <>
-   {items.map((item)=>{
-                   return <h3>
-                    <Item title = {item.title}/>
-                    <ItemCount stock = {item.stock}/>
-                   </h3>
+   {props.items.map((item)=>{ 
+                   return <div id="load" className="w-80 p-5 bg-white shadow rounded transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105">
+                    <div key={item.id}>  </div>
+                      <Item 
+                      title = {item.title}
+                      author = {item.author}
+                      price = {item.price}
+                      img = {item.img}/>
+                      <ItemCount stock = {item.stock}/>
+                    </div>
                 })
               }
     </>
