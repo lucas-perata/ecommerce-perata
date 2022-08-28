@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import landing from "./landing.jpg"
-import ItemCount from '../ItemCount/ItemCount'
-import {FaHandPointDown} from "react-icons/fa";
+import ItemList from '../ItemList/ItemList'
 
 const ItemListContainer = (props) => {
+        
     return (<>
     <section className="dark:bg-gray-800 dark:text-gray-100 bg-cyan-500 h-auto">
         <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
@@ -17,8 +17,7 @@ const ItemListContainer = (props) => {
 		</div>
         </div>
         </section>
-        <ItemCount
-              stock = {2} />
+        <ItemList/>
     </>
     )
 }
