@@ -17,13 +17,8 @@ const ItemListContainer = (props) => {
 		</div>
         </div>
         </section>
-        <section id="tienda">
-            <h2 className="flex justify-center ls">Tienda</h2>
-            <div className="flex justify-center"><FaHandPointDown/></div>
         <ItemCount
               stock = {2} />
-        </section>
-    
     </>
     )
 }
