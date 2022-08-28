@@ -63,7 +63,7 @@ export default function NavBar() {
                               <a href="javascript:void(0)">Home</a>
                           </li>
                           <li className="text-gray-600 hover:text-blue-600">
-                              <a href="#store">Tienda</a>
+                              <a href="#tienda">Tienda</a>
                           </li>
                           <li className="text-gray-600 hover:text-blue-600">
                               <a href="javascript:void(0)">Sobre nosotros </a>

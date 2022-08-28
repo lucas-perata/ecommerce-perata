@@ -1,6 +1,7 @@
 import React from "react";
 import landing from "./landing.jpg"
 import ItemCount from '../ItemCount/ItemCount'
+import {FaHandPointDown} from "react-icons/fa";
 
 const ItemListContainer = (props) => {
     return (<>
@@ -15,9 +16,14 @@ const ItemListContainer = (props) => {
 			<img src={landing} alt="" className="object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128"></img>
 		</div>
         </div>
-    </section>
-    <ItemCount
+        </section>
+        <section id="tienda">
+            <h2 className="flex justify-center ls">Tienda</h2>
+            <div className="flex justify-center"><FaHandPointDown/></div>
+        <ItemCount
               stock = {2} />
+        </section>
+    
     </>
     )
 }
