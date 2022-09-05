@@ -16,7 +16,7 @@ const ItemListContainer = (props) => {
 
     getProducts
       .then((data) => {
-        setItems(products);
+        setItems(data);
       })
       .catch((error) => {
         console.log(error);

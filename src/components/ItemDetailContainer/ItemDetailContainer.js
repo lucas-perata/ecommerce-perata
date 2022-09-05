@@ -4,7 +4,7 @@ import { products } from "../../mock/products";
 
 function ItemDetailContainer() {
   const [items, setItems] = useState([]);
-  const uniqueProduct = products.find((product) => product.id === 1);
+  const uniqueProduct = products.find((product) => product.id === 3);
 
   useEffect(() => {
     const getProducts = new Promise((res, rej) => {
@@ -15,7 +15,7 @@ function ItemDetailContainer() {
 
     getProducts
       .then((data) => {
-        setItems(products);
+        setItems(data);
       })
       .catch((error) => {
         console.log(error);
