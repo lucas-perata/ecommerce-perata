@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import landing from "./landing.jpg";
 import ItemList from "../ItemList/ItemList";
 import { products } from "../../mock/products";
-import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer";
 
 const ItemListContainer = (props) => {
   const [items, setItems] = useState([]);
