@@ -50,7 +50,6 @@ const ItemListContainer = (props) => {
         <div className=" container flex flex-col justify-around p-6 mx-auto sm:py-12 lg:py-10 lg:flex-row lg:flex lg:gap-5 md:flex md:items-center sm:flex sm:items-center">
           <ItemList items={items} />
         </div>
-        <ItemDetailContainer />
       </section>
     </>
   );
