@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import CartWidget from "../CartWidget/CartWidget";
 import { Link } from "react-router-dom";
+import DropDown from "./DropDown";
 
 export default function NavBar() {
   const [navbar, setNavbar] = useState(false);
@@ -66,8 +67,8 @@ export default function NavBar() {
               <li className="text-gray-600 hover:text-blue-600">
                 <Link to="/">Home</Link>
               </li>
-              <li className="text-gray-600 hover:text-blue-600">
-                <a href="#tienda">Tienda</a>
+              <li>
+                <DropDown />
               </li>
               <li className="text-gray-600 hover:text-blue-600">
                 <a href="javascript:void(0)">Sobre nosotros </a>
