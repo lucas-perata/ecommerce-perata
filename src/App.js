@@ -20,6 +20,10 @@ function App() {
               path="/detail/:productId"
               element={<ItemDetailContainer />}
             />
+            <Route
+              path="/category/:categoryName"
+              element={<ItemDetailContainer />}
+            />
           </Routes>
         </main>
 
