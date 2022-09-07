@@ -2,17 +2,22 @@ import React, { useEffect, useState } from "react";
 import landing from "./landing.jpg";
 import ItemList from "../ItemList/ItemList";
 import { products } from "../../mock/products";
+import { useParams } from "react-router-dom";
 
 const ItemListContainer = (props) => {
+  const params = useParams();
+
   const [items, setItems] = useState([]);
 
   useEffect(() => {
+    const categoryProduct = products.filter(
+      (product) => product.category === params.categoryName
+    );
     const getProducts = new Promise((res, rej) => {
       setTimeout(() => {
-        setItems(products);
+        res(params.categoryName ? categoryProduct : products);
       }, 2000);
     });
-
     getProducts
       .then((data) => {
         setItems(data);
@@ -23,7 +28,7 @@ const ItemListContainer = (props) => {
       .finally(() => {
         console.log("Finally");
       });
-  }, []);
+  }, [params.categoryName]);
 
   return (
     <>

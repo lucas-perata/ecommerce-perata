@@ -2,6 +2,7 @@
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import { Link } from "react-router-dom";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -32,21 +33,12 @@ export default function Example() {
         <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="py-1">
             <Menu.Item>
-              {({ active }) => (
-                <a
-                  href="#"
-                  className={classNames(
-                    active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                    "block px-4 py-2 text-sm"
-                  )}
-                >
-                  Tienda
-                </a>
-              )}
+              <Link to="/">Tienda</Link>
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
-                <a
+                <Link
+                  to="/category/nuevo"
                   href="#"
                   className={classNames(
                     active ? "bg-gray-100 text-gray-900" : "text-gray-700",
@@ -54,12 +46,13 @@ export default function Example() {
                   )}
                 >
                   Nuevos
-                </a>
+                </Link>
               )}
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
-                <a
+                <Link
+                  to="/category/usado"
                   href="#"
                   className={classNames(
                     active ? "bg-gray-100 text-gray-900" : "text-gray-700",
@@ -67,7 +60,7 @@ export default function Example() {
                   )}
                 >
                   Usados
-                </a>
+                </Link>
               )}
             </Menu.Item>
             <form method="POST" action="#"></form>

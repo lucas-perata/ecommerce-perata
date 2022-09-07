@@ -22,7 +22,7 @@ function App() {
             />
             <Route
               path="/category/:categoryName"
-              element={<ItemDetailContainer />}
+              element={<ItemListContainer saludo="Lucas" />}
             />
           </Routes>
         </main>
