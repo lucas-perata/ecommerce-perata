@@ -1,8 +1,15 @@
 import React from "react";
 import ItemCount from "../ItemCount/ItemCount";
 import "./ItemDetail.css";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export const ItemDetail = (props) => {
+  const [quantity, setQuantity] = useState(0);
+
+  const onAdd = (arg) => {
+    setQuantity(arg);
+  };
   return (
     <>
       <section className="text-gray-700 body-font overflow-hidden bg-white">
@@ -25,7 +32,8 @@ export const ItemDetail = (props) => {
                 </span>
               </div>
               <p class="leading-relaxed">{props.items.description}</p>
-              <ItemCount stock={props.items.stock} />
+              <ItemCount stock={props.items.stock} onAdd={onAdd} />
+              <Link to="/cart">Ir al carrito</Link>
             </div>
           </div>
         </div>
