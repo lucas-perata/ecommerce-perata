@@ -12,7 +12,13 @@ export const Item = (props) => {
         alt={"Portada " + props.title}
         className="rounded-sm w-15"
       />
-      <Link to={"/detail/" + props.id}>más info</Link>
+
+      <Link
+        to={"/detail/" + props.id}
+        className="bg-red-500 hover:bg-red-700 text-white font-bold px-2 rounded-full"
+      >
+        más info
+      </Link>
     </>
   );
 };
