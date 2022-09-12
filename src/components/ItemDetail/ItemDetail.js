@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 
 export const ItemDetail = (props) => {
   const [quantity, setQuantity] = useState(0);
-
   const onAdd = (arg) => {
+    console.log(arg);
     setQuantity(arg);
   };
   return (
@@ -32,8 +32,21 @@ export const ItemDetail = (props) => {
                 </span>
               </div>
               <p class="leading-relaxed">{props.items.description}</p>
-              <ItemCount stock={props.items.stock} onAdd={onAdd} />
-              <Link to="/cart">Ir al carrito</Link>
+              {quantity > 0 ? (
+                <Link
+                  className="py-2 margin px-4 bg-cyan-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center"
+                  to="/cart"
+                >
+                  Ir al carrito
+                </Link>
+              ) : (
+                <ItemCount
+                  stock={props.items.stock}
+                  onAdd={onAdd}
+                  initial={quantity}
+                  quantity={quantity}
+                />
+              )}
             </div>
           </div>
         </div>

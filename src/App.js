@@ -24,6 +24,7 @@ function App() {
               path="/category/:categoryName"
               element={<ItemListContainer saludo="Lucas" />}
             />
+            <Route path="/cart" />
           </Routes>
         </main>
 

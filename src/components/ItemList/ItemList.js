@@ -20,7 +20,6 @@ const ItemList = (props) => {
               img={item.img}
               id={item.id}
             />
-            <ItemCount stock={item.stock} />
           </div>
         );
       })}
