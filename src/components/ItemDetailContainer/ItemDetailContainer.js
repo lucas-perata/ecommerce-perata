@@ -10,8 +10,6 @@ function ItemDetailContainer() {
   const uniqueProduct = products.find(
     (product) => product.id == params.productId
   );
-  console.log(params.productId);
-
   useEffect(() => {
     const getProducts = new Promise((res, rej) => {
       setTimeout(() => {
