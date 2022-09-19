@@ -5,7 +5,7 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import ItemList from "./components/ItemList/ItemList";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CartProvider from "./context/CartContext";
-
+import Cart from "./components/Cart/Cart";
 function App() {
   return (
     <>
@@ -26,7 +26,7 @@ function App() {
                 path="/category/:categoryName"
                 element={<ItemListContainer saludo="Lucas" />}
               />
-              <Route path="/cart" />
+              <Route path="/cart" element={<Cart />} />
             </Routes>
           </main>
 

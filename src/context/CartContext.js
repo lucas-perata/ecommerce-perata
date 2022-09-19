@@ -15,17 +15,35 @@ const CartProvider = ({ children }) => {
       alert("Ya está en el carrito");
     } else {
       setCart([...cart, { ...item, qty: quantity }]);
+      qty += 1;
     }
   };
 
-  console.log(cart);
+  const deleteOne = (id) => {
+    const filteredProducts = cart.filter((prod) => prod.id !== id);
+    setCart(filteredProducts);
+  };
+
+  const sumPrice = (cart) => {
+    let price = 0;
+    cart.forEach((prod) => {
+      price += prod.qty * prod.price;
+    });
+    return price;
+  };
+
+  const qty = (cart) => {
+    return cart.length;
+  };
 
   const clearCart = () => {
     setCart([]);
   };
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, clearCart }}>
+    <CartContext.Provider
+      value={{ cart, addToCart, clearCart, deleteOne, qty, sumPrice }}
+    >
       {children}
     </CartContext.Provider>
   );

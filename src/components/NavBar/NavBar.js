@@ -3,9 +3,12 @@ import { useState } from "react";
 import CartWidget from "../CartWidget/CartWidget";
 import { Link } from "react-router-dom";
 import DropDown from "./DropDown";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 
 export default function NavBar() {
   const [navbar, setNavbar] = useState(false);
+  const { qty, cart } = useContext(CartContext);
 
   return (
     <nav className="w-full bg-white shadow">
@@ -70,9 +73,13 @@ export default function NavBar() {
               <li className="text-gray-600 hover:text-blue-600">
                 <a href="javascript:void(0)">Sobre nosotros </a>
               </li>
-              <li className="flex flex-row">
-                <CartWidget />
-              </li>
+              {qty(cart) == 0 ? (
+                ""
+              ) : (
+                <li className="flex flex-row">
+                  <CartWidget />
+                </li>
+              )}
               <li>
                 <DropDown />
               </li>
