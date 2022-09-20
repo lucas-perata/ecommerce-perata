@@ -14,7 +14,9 @@ export default function CartWidget() {
           <AiOutlineShoppingCart />
         </button>
       </Link>
-      <li className="text-xs text-cyan-500 font-bold">{qty(cart)}</li>
+      <li className="text-xs text-cyan-500 font-bold">
+        {qty(cart) > 0 ? qty(cart) : ""}
+      </li>
     </>
   );
 }
