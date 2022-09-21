@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import landing from "./landing.jpg";
 import ItemList from "../ItemList/ItemList";
-import { products } from "../../mock/products";
 import { useParams } from "react-router-dom";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../firebaseConfig";
 
 const ItemListContainer = (props) => {
   const params = useParams();
@@ -10,24 +11,10 @@ const ItemListContainer = (props) => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    const categoryProduct = products.filter(
-      (product) => product.category === params.categoryName
-    );
-    const getProducts = new Promise((res, rej) => {
-      setTimeout(() => {
-        res(params.categoryName ? categoryProduct : products);
-      }, 2000);
+    const productCollection = collection(db, "items");
+    getDocs(productCollection).then((resp) => {
+      setItems(resp.docs);
     });
-    getProducts
-      .then((data) => {
-        setItems(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-      .finally(() => {
-        console.log("Finally");
-      });
   }, [params.categoryName]);
 
   return (
@@ -60,3 +47,24 @@ const ItemListContainer = (props) => {
 };
 
 export default ItemListContainer;
+
+// useEffect(() => {
+//   const categoryProduct = products.filter(
+//     (product) => product.category === params.categoryName
+//   );
+//   const getProducts = new Promise((res, rej) => {
+//     setTimeout(() => {
+//       res(params.categoryName ? categoryProduct : products);
+//     }, 2000);
+//   });
+//   getProducts
+//     .then((data) => {
+//       setItems(data);
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     })
+//     .finally(() => {
+//       console.log("Finally");
+//     });
+// }, [params.categoryName]);

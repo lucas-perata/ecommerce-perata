@@ -1,32 +1,23 @@
 import React, { useEffect, useState } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
-import { products } from "../../mock/products";
 import { useParams } from "react-router-dom";
 import "./ItemDetailContainer.css";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../firebaseConfig";
 
 function ItemDetailContainer() {
   const [items, setItems] = useState([]);
   const params = useParams();
-  const uniqueProduct = products.find(
-    (product) => product.id == params.productId
-  );
-  useEffect(() => {
-    const getProducts = new Promise((res, rej) => {
-      setTimeout(() => {
-        setItems(uniqueProduct);
-      }, 2000);
-    });
 
-    getProducts
-      .then((data) => {
-        setItems(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-      .finally(() => {
-        console.log("Finally");
+  useEffect(() => {
+    const uniqueProduct = collection(db, "items");
+    getDocs(uniqueProduct).then((resp) => {
+      resp.docs.map((prod) => {
+        if (prod.data().id == params.productId) {
+          setItems(prod.data());
+        }
       });
+    });
   }, []);
 
   return (
