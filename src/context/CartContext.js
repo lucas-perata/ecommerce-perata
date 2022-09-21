@@ -33,7 +33,11 @@ const CartProvider = ({ children }) => {
   };
 
   const qty = (cart) => {
-    return cart.length;
+    let number = 0;
+    cart.forEach((prod) => {
+      number += prod.qty;
+    });
+    return number;
   };
 
   const clearCart = () => {
