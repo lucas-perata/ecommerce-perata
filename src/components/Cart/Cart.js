@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Form from "../Form/Form";
 import { clear } from "@testing-library/user-event/dist/clear";
 import { useState } from "react";
+import Modal from "../Modal/Modal";
 
 export default function Cart() {
   const { cart, clearCart, deleteOne, sumPrice } = useContext(CartContext);
@@ -17,7 +18,23 @@ export default function Cart() {
   if (idCompra) {
     return (
       <>
-        <h2>Gracias por tu compra. Tu código es {idCompra}</h2>
+        <div class="flex justify-center my-6">
+          <div class="flex justify-center w-full p-8 text-gray-800 bg-white shadow-lg pin-r pin-y md:w-4/5 lg:w-4/5">
+            <div class="flex-1 text-center">
+              <div>
+                <strong> ¡Gracias por tu compra!</strong>
+                <div>Id: {idCompra}</div>
+              </div>
+              <div className="flex w-full justify-center">
+                <Link to="/">
+                  <button className="ml-4 flex justify-center px-10 py-3 mt-6 font-medium text-white uppercase bg-green-800 rounded-full shadow item-center hover:bg-green-700 focus:shadow-outline focus:outline-none">
+                    Home
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
       </>
     );
   }
@@ -124,18 +141,15 @@ export default function Cart() {
                     >
                       <span class="ml-2 mt-5px">Limpiar carrito</span>
                     </button>
-                    <button class="ml-4 flex w-auto justify-center px-10 py-3 mt-6 font-medium text-white uppercase bg-green-800 rounded-full shadow item-center hover:bg-green-700 focus:shadow-outline focus:outline-none">
-                      <span class="ml-2 mt-5px">Terminar compra</span>
-                    </button>
+                    <Modal
+                      cart={cart}
+                      total={total}
+                      clearCart={clearCart}
+                      handleId={handleId}
+                    />
                   </div>
                 </div>
               </div>
-              <Form
-                cart={cart}
-                total={total}
-                clearCart={clearCart}
-                handleId={handleId}
-              />
             </div>
           </div>
         </div>
