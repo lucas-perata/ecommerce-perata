@@ -2,10 +2,25 @@ import React from "react";
 import { CartContext } from "../../context/CartContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import Form from "../Form/Form";
+import { clear } from "@testing-library/user-event/dist/clear";
+import { useState } from "react";
 
 export default function Cart() {
   const { cart, clearCart, deleteOne, sumPrice } = useContext(CartContext);
+  const [idCompra, setIdCompra] = useState("");
   const total = sumPrice(cart);
+  const handleId = (id) => {
+    setIdCompra(id);
+  };
+
+  if (idCompra) {
+    return (
+      <>
+        <h2>Gracias por tu compra. Tu código es {idCompra}</h2>
+      </>
+    );
+  }
   return (
     <>
       {cart.length == 0 ? (
@@ -115,6 +130,12 @@ export default function Cart() {
                   </div>
                 </div>
               </div>
+              <Form
+                cart={cart}
+                total={total}
+                clearCart={clearCart}
+                handleId={handleId}
+              />
             </div>
           </div>
         </div>
