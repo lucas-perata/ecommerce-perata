@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 import CartWidget from "../CartWidget/CartWidget";
 import { Link } from "react-router-dom";
-import DropDown from "./DropDown";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 
@@ -73,11 +72,11 @@ export default function NavBar() {
               <li className="text-gray-600 hover:text-blue-600">
                 <a href="javascript:void(0)">Sobre nosotros </a>
               </li>
+              <li className="text-gray-600 hover:text-blue-600">
+                <a href="#tienda">Tienda</a>
+              </li>
               <li className="flex flex-row">
                 <CartWidget />
-              </li>
-              <li>
-                <DropDown />
               </li>
             </ul>
           </div>

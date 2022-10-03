@@ -4,6 +4,7 @@ import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebaseConfig";
+import { Link } from "react-router-dom";
 
 const ItemListContainer = (props) => {
   const params = useParams();
@@ -19,7 +20,7 @@ const ItemListContainer = (props) => {
 
   return (
     <>
-      <section className="dark:bg-gray-800 dark:text-gray-100 bg-cyan-500 h-auto">
+      <section className="dark:bg-gray-800 dark:text-gray-100 bg-cyan-500 h-full">
         <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
           <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
             <h1 className="text-5xl font-bold leading-none sm:text-6xl text-white">
@@ -37,7 +38,18 @@ const ItemListContainer = (props) => {
       </section>
 
       <section id="tienda" className="">
-        <h2 className="flex justify-center text-5xl font-black p-6">Tienda</h2>
+        <h2 className="flex justify-center text-5xl font-black p-6 ">Tienda</h2>
+        <div className="flex justify-center gap-5 ">
+          <Link to="/category/nuevo" href="#" className="hover:text-violet-600">
+            Nuevos
+          </Link>
+          <Link to="/category/usado" className="hover:text-violet-600" href="#">
+            Usados
+          </Link>
+          <Link to="/" href="#" className="hover:text-violet-600">
+            Todos
+          </Link>
+        </div>
         <div className=" container flex flex-col justify-around p-6 mx-auto sm:py-12 lg:py-10 lg:flex-row lg:flex lg:gap-5 md:flex md:items-center sm:flex sm:items-center">
           <ItemList items={items} />
         </div>
@@ -47,24 +59,3 @@ const ItemListContainer = (props) => {
 };
 
 export default ItemListContainer;
-
-// useEffect(() => {
-//   const categoryProduct = products.filter(
-//     (product) => product.category === params.categoryName
-//   );
-//   const getProducts = new Promise((res, rej) => {
-//     setTimeout(() => {
-//       res(params.categoryName ? categoryProduct : products);
-//     }, 2000);
-//   });
-//   getProducts
-//     .then((data) => {
-//       setItems(data);
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//     })
-//     .finally(() => {
-//       console.log("Finally");
-//     });
-// }, [params.categoryName]);
