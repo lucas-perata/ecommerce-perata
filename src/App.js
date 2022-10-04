@@ -19,7 +19,6 @@ function App() {
           </header>
 
           <main>
-            <Hero />
             <Routes>
               <Route path="/" element={<ItemListContainer saludo="Lucas" />} />
               <Route

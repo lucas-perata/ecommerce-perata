@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebaseConfig";
 import { Link } from "react-router-dom";
+import Hero from "../Hero/Hero";
 
 const ItemListContainer = (props) => {
   const params = useParams();
@@ -19,6 +20,7 @@ const ItemListContainer = (props) => {
 
   return (
     <>
+      <Hero />
       <section id="tienda" className="">
         <h2 className="flex  justify-center text-5xl font-black p-6 ">
           Tienda
