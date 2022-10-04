@@ -10,7 +10,7 @@ export default function NavBar() {
   const { qty, cart } = useContext(CartContext);
 
   return (
-    <nav className="w-full bg-white shadow">
+    <nav className="w-full shadow shadow-cyan-500/50 relative">
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
@@ -70,7 +70,7 @@ export default function NavBar() {
                 <Link to="/">Home</Link>
               </li>
               <li className="text-gray-600 hover:text-blue-600">
-                <a href="javascript:void(0)">Sobre nosotros </a>
+                <Link to="/about-us">Sobre nosotros</Link>
               </li>
               <li className="text-gray-600 hover:text-blue-600">
                 <a href="#tienda">Tienda</a>
