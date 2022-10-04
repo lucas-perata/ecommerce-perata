@@ -20,21 +20,33 @@ const ItemListContainer = (props) => {
 
   return (
     <>
-      <Hero />
+      {props.page === "store" ? console.log(items) : <Hero />}
       <section id="tienda" className="">
         <h2 className="flex  justify-center text-5xl font-black p-6 ">
           Tienda
         </h2>
         <div className="flex justify-center gap-5 ">
-          <Link to="/category/nuevo" href="#" className="hover:text-violet-600">
-            Nuevos
-          </Link>
-          <Link to="/category/usado" className="hover:text-violet-600" href="#">
-            Usados
-          </Link>
-          <Link to="/" href="#" className="hover:text-violet-600">
-            Todos
-          </Link>
+          {props.page === "store" ? (
+            <>
+              <Link
+                to="/store/category/nuevo"
+                href="#"
+                className="hover:text-violet-600"
+              >
+                Nuevos
+              </Link>
+              <Link
+                to="/store/category/usado"
+                className="hover:text-violet-600"
+              >
+                Usados
+              </Link>
+            </>
+          ) : (
+            <Link to="/store/" href="#" className="hover:text-violet-600">
+              Ver todos
+            </Link>
+          )}
         </div>
         {items.length === 0 ? (
           <div role="status" className="w-full mt-10 flex justify-center">
@@ -58,7 +70,9 @@ const ItemListContainer = (props) => {
           </div>
         ) : (
           <div className="flex container flex-wrap  p-6 mx-auto sm:py-12 lg:py-10 lg:flex-row lg:flex lg:gap-5 md:flex md:items-center sm:flex sm:items-center">
-            <ItemList items={items} />
+            <ItemList
+              items={props.page === "store" ? items : items.slice(0, 4)}
+            />
           </div>
         )}
       </section>

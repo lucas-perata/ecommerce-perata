@@ -70,7 +70,7 @@ export default function NavBar() {
                 <Link to="/about-us">Sobre nosotros</Link>
               </li>
               <li className="text-gray-600 hover:text-blue-600">
-                <a href="#tienda">Tienda</a>
+                <Link to="/store">Tienda</Link>
               </li>
               <li className="flex flex-row">
                 <CartWidget />
