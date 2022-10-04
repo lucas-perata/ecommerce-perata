@@ -7,11 +7,11 @@ import ItemList from "./components/ItemList/ItemList";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CartProvider from "./context/CartContext";
 import Cart from "./components/Cart/Cart";
-import Hero from "./components/Hero/Hero";
+import About from "./components/About/About";
 
 function App() {
   return (
-    <>
+    <div className="flex flex-col justify-start" style={{ minHeight: "100vh" }}>
       <CartProvider>
         <BrowserRouter>
           <header>
@@ -30,15 +30,14 @@ function App() {
                 element={<ItemListContainer saludo="Lucas" />}
               />
               <Route path="/cart" element={<Cart />} />
+              <Route path="/about-us" element={<About />} />
             </Routes>
           </main>
 
-          <footer>
-            <Footer />
-          </footer>
+          <Footer />
         </BrowserRouter>
       </CartProvider>
-    </>
+    </div>
   );
 }
 
