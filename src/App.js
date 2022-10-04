@@ -7,6 +7,8 @@ import ItemList from "./components/ItemList/ItemList";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CartProvider from "./context/CartContext";
 import Cart from "./components/Cart/Cart";
+import Hero from "./components/Hero/Hero";
+
 function App() {
   return (
     <>
@@ -17,6 +19,7 @@ function App() {
           </header>
 
           <main>
+            <Hero />
             <Routes>
               <Route path="/" element={<ItemListContainer saludo="Lucas" />} />
               <Route
