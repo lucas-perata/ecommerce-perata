@@ -15,9 +15,9 @@ export const ItemDetail = (props) => {
   };
   return (
     <>
-      <section className="text-gray-700 body-font overflow-hidden bg-white">
-        <div class="container px-20 py-24 mx-auto">
-          <div class="lg:w-4/5 mx-auto flex flex-wrap">
+      <section className="text-gray-700  body-font xs:w-screen overflow-hidden  sm:bg-white">
+        <div class="container px-20 py-24 xs:px-0 xs:py-10 mx-auto">
+          <div class="lg:w-4/5 xs:w-full mx-auto flex flex-wrap">
             <img
               class="detail lg:w-1/2 object-cover object-center rounded border border-gray-200"
               src={props.items.img}
