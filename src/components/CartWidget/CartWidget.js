@@ -6,7 +6,6 @@ import { CartContext } from "../../context/CartContext";
 
 export default function CartWidget() {
   const { qty, cart } = useContext(CartContext);
-
   return (
     <>
       <Link to="/cart">
