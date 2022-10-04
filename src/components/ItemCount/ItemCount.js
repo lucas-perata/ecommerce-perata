@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 
 export default function ItemCount({ stock, onAdd, initial, quantity }) {
   const [items, setItems] = useState(initial);
@@ -7,7 +6,7 @@ export default function ItemCount({ stock, onAdd, initial, quantity }) {
   const maxItems = stock;
 
   const sumItem = () => {
-    items == maxItems ? console.log("error de stock") : setItems(items + 1);
+    items === maxItems ? console.log("error de stock") : setItems(items + 1);
   };
 
   const minusItem = () => {

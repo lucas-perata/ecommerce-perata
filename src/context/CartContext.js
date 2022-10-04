@@ -32,7 +32,7 @@ const CartProvider = ({ children }) => {
     return price;
   };
 
-  const qty = (cart) => {
+  let qty = (cart) => {
     let number = 0;
     cart.forEach((prod) => {
       number += prod.qty;

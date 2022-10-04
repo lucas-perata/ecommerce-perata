@@ -38,7 +38,7 @@ export default function Cart() {
   }
   return (
     <>
-      {cart.length == 0 ? (
+      {cart.length === 0 ? (
         <div class="flex justify-center my-6">
           <div class="flex justify-center w-full p-8 text-gray-800 bg-white shadow-lg pin-r pin-y md:w-4/5 lg:w-4/5">
             <div class="flex-1 text-center">
@@ -82,13 +82,11 @@ export default function Cart() {
                       return (
                         <tr>
                           <td class="hidden pb-4 md:table-cell">
-                            <a href="#">
-                              <img
-                                src={item.img}
-                                class="w-20 rounded"
-                                alt="Thumbnail"
-                              />
-                            </a>
+                            <img
+                              src={item.img}
+                              class="w-20 rounded"
+                              alt="Thumbnail"
+                            />
                           </td>
                           <td>
                             <p class="mb-2 md:ml-4">{item.title}</p>

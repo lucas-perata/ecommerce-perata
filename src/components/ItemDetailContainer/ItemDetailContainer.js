@@ -13,12 +13,14 @@ function ItemDetailContainer() {
     const uniqueProduct = collection(db, "items");
     getDocs(uniqueProduct).then((resp) => {
       resp.docs.map((prod) => {
-        if (prod.data().id == params.productId) {
-          setItems(prod.data());
+        if (prod.data().id === parseInt(params.productId)) {
+          return setItems(prod.data());
+        } else {
+          return "";
         }
       });
     });
-  }, []);
+  }, [params.productId]);
 
   return (
     <>
@@ -44,8 +46,6 @@ function ItemDetailContainer() {
                 </div>
               </div>
               <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-                <h2 class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-60 mb-4"></h2>
-                <h1 class="h-5 bg-gray-200 rounded-full dark:bg-gray-700 w-20 mb-4"></h1>
                 <div className="flex">
                   <span class="h-4 bg-gray-200 rounded-full dark:bg-gray-700 w-10 mb-4"></span>
                 </div>

@@ -46,6 +46,8 @@ const ItemList = (props) => {
               />
             </div>
           );
+        } else {
+          return "";
         }
       })}
     </>

@@ -21,6 +21,7 @@ export const ItemDetail = (props) => {
             <img
               class="detail lg:w-1/2 object-cover object-center rounded border border-gray-200"
               src={props.items.img}
+              alt="product"
             />
             <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
               <h2 class="text-sm title-font text-gray-500 tracking-widest">

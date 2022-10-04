@@ -8,7 +8,7 @@ export default function About() {
           <div class="md:5/12 lg:w-5/12">
             <img
               src="https://tailus.io/sources/blocks/left-image/preview/images/startup.png"
-              alt="image"
+              alt="about-us"
               loading="lazy"
               width=""
               height=""

@@ -2,12 +2,9 @@ import React from "react";
 import { useState } from "react";
 import CartWidget from "../CartWidget/CartWidget";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
 
 export default function NavBar() {
   const [navbar, setNavbar] = useState(false);
-  const { qty, cart } = useContext(CartContext);
 
   return (
     <nav className="w-full shadow shadow-cyan-500/50 relative">
