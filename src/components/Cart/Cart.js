@@ -9,6 +9,7 @@ export default function Cart() {
   const { cart, clearCart, deleteOne, sumPrice } = useContext(CartContext);
   const [idCompra, setIdCompra] = useState("");
   const total = sumPrice(cart);
+
   const handleId = (id) => {
     setIdCompra(id);
   };

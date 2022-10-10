@@ -1,4 +1,10 @@
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  serverTimestamp,
+  updateDoc,
+  doc,
+} from "firebase/firestore";
 import React, { useState } from "react";
 import { db } from "../../firebaseConfig";
 
@@ -18,8 +24,17 @@ const Form = ({ cart, total, clearCart, handleId }) => {
 
     const ordersCollection = collection(db, "orders");
 
+    const updateItem = () => {
+      cart.forEach((element) => {
+        updateDoc(doc(db, "items", `${element.id}`), {
+          stock: element.stock - element.qty,
+        });
+      });
+    };
+
     addDoc(ordersCollection, order).then((res) => {
       handleId(res.id);
+      updateItem();
       clearCart();
     });
   };

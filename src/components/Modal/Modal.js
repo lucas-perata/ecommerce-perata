@@ -45,7 +45,7 @@ export default function Modal({ cart, total, clearCart, handleId }) {
                     type="button"
                     onClick={() => setShowModal(false)}
                   >
-                    Close
+                    Cerrar
                   </button>
                 </div>
               </div>

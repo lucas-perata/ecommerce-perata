@@ -13,6 +13,7 @@ export const ItemDetail = (props) => {
     setQuantity(arg);
     addToCart(props.items, arg);
   };
+
   return (
     <>
       <section className="text-gray-700  body-font xs:w-screen overflow-hidden  sm:bg-white">

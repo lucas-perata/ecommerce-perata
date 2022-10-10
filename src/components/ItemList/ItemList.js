@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 
 const ItemList = (props) => {
   const params = useParams();
-  console.log(params);
 
   return (
     <>
