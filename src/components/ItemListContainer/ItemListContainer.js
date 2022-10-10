@@ -28,6 +28,9 @@ const ItemListContainer = (props) => {
         <div className="flex justify-center gap-5 ">
           {props.page === "store" ? (
             <>
+              <Link to="/store/" href="#" className="hover:text-violet-600">
+                Todos
+              </Link>
               <Link
                 to="/store/category/nuevo"
                 href="#"
