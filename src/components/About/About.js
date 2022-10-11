@@ -1,5 +1,5 @@
 import React from "react";
-
+import landing from "./landing.jpg";
 export default function About() {
   return (
     <div class="py-16 bg-white">
@@ -7,7 +7,7 @@ export default function About() {
         <div class="space-y-6 md:space-y-0 md:flex md:gap-6 lg:items-center lg:gap-12">
           <div class="md:5/12 lg:w-5/12">
             <img
-              src="https://tailus.io/sources/blocks/left-image/preview/images/startup.png"
+              src={landing}
               alt="about-us"
               loading="lazy"
               width=""
@@ -16,7 +16,7 @@ export default function About() {
           </div>
           <div class="md:7/12 lg:w-6/12">
             <h2 class="text-2xl text-gray-900 font-bold md:text-4xl">
-              Nuxt development is carried out by passionate developers
+              Bookemmerce está a cargo de amantes de los libros
             </h2>
             <p class="mt-6 text-gray-600">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum
