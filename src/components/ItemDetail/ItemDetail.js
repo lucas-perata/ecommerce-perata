@@ -38,12 +38,20 @@ export const ItemDetail = (props) => {
               </div>
               <p class="leading-relaxed">{props.items.description}</p>
               {quantity > 0 ? (
-                <Link
-                  className="py-2 margin px-4 bg-cyan-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center"
-                  to="/cart"
-                >
-                  Ir al carrito
-                </Link>
+                <>
+                  <Link
+                    className="py-2 margin px-4 bg-cyan-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center"
+                    to="/cart"
+                  >
+                    Ir al carrito
+                  </Link>
+                  <Link
+                    className="py-2 px-4 bg-green-500 text-white rounded hover:bg-green-600 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center"
+                    to="/store"
+                  >
+                    Seguir comprando
+                  </Link>
+                </>
               ) : (
                 <ItemCount
                   stock={props.items.stock}
